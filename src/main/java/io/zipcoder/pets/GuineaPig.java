@@ -11,7 +11,7 @@ public class GuineaPig extends Pet {
     }
 
     @Override
-    public void speak() {
+    public String speak() {
         return;
     }
 }
