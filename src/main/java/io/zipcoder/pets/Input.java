@@ -19,9 +19,10 @@ public class Input {
     }
 
     public void runProgram() {
-        int amount = getHowManyPets();
-        getWhatKind(amount);
-        getPetNames(amount);
+        getHowManyPets();
+        getWhatKind();
+        getPetNames();
+        makePets();
         printPets();
     }
 
@@ -43,8 +44,9 @@ public class Input {
         System.out.println("What kind of pets are they?");
     }
 
-    private void getWhatKind(int amount) {
+    private void getWhatKind() {
         askWhatKind();
+        int amount = Integer.valueOf(inputs.get(0));
         int petsSpecified = 0;
         while (petsSpecified < amount) {
             inputs.add(getInput());
@@ -56,8 +58,9 @@ public class Input {
         System.out.println("What are their names?");
     }
 
-    private void getPetNames(int amount) {
+    private void getPetNames() {
         askPetNames();
+        int amount = Integer.valueOf(inputs.get(0));
         int petsNamed = 0;
         while (petsNamed < amount) {
             inputs.add(getInput());
@@ -65,11 +68,35 @@ public class Input {
         }
     }
 
+    private void makePets() {
+        int amount = Integer.valueOf(inputs.get(0));
+        for (int i = 1; i <= amount; i++) {
+            String name = inputs.get(i+amount);
+            String type = inputs.get(i).toLowerCase();
+            switch (type) {
+                case "cat":
+                    pets.add(new Cat(name));
+                    break;
+                case "dog":
+                    pets.add(new Dog(name));
+                    break;
+                case "guineapig":
+                    pets.add(new GuineaPig(name));
+                    break;
+                default:
+                    System.out.println(type + " isn't real to me.");
+                    break;
+            }
+        }
+    }
+
     private void printPets() {
         for (Pet p : pets) {
-            System.out.println(p.getClass().getName() + "\n" +
-                                p.getName() + "\n" +
-                                p.speak());
+            String output = "";
+            output += p.getClass().getSimpleName() + "\n";
+            output += "Name: " + p.getName() + "\n";
+            output += "Says: " + p.speak();
+            System.out.println(output);
         }
     }
 }

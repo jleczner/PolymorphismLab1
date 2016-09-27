@@ -12,7 +12,6 @@ public class Dog extends Pet {
 
     @Override
     public String speak() {
-        System.out.println("bark");
         return "bark";
     }
 }
