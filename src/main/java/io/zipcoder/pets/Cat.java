@@ -12,6 +12,7 @@ public class Cat extends Pet {
 
     @Override
     public String speak() {
-        return;
+        System.out.println("meow");
+        return "meow";
     }
 }

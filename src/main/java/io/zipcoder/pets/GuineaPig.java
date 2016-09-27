@@ -12,6 +12,7 @@ public class GuineaPig extends Pet {
 
     @Override
     public String speak() {
-        return;
+        System.out.println("squeak");
+        return "squeak";
     }
 }
