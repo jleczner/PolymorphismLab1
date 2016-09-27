@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class DogTest {
 
-    Pet dog = new Dog();
+    Pet dog = new Dog("bob");
 
     @Test
     public void speakTest() {

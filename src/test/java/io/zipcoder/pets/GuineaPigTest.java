@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class GuineaPigTest {
 
-    Pet guineaPig = new GuineaPig();
+    Pet guineaPig = new GuineaPig("bob");
 
     @Test
     public void speakTest() {
