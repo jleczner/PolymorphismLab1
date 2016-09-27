@@ -10,10 +10,12 @@ import java.util.Scanner;
 public class Input {
     Scanner s;
     List<String> inputs;
+    List<Pet> pets;
 
     public Input() {
         s = new Scanner(System.in);
         inputs = new ArrayList<>();
+        pets = new ArrayList<>();
     }
 
     public void runProgram() {
@@ -64,10 +66,10 @@ public class Input {
     }
 
     private void printPets() {
-        int amount = Integer.valueOf(inputs.get(0));
-        System.out.println(amount + " pets");
-        for (int i = 1; i <= amount; i++) {
-            System.out.println(i + " " + inputs.get(i) + ": " + inputs.get(i + amount));
+        for (Pet p : pets) {
+            System.out.println(p.getClass().getName() + "\n" +
+                                p.getName() + "\n" +
+                                p.speak());
         }
     }
 }
